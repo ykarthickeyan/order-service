@@ -6,6 +6,7 @@ import com.shopping.order.model.ProductTO;
 import com.shopping.order.service.CartService;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
@@ -77,6 +78,7 @@ public class CartController {
     }
 
     @GetMapping(value = "/cart/test")
+    @PreAuthorize("hasAuthority('SCOPE_openid')")
     public @ResponseBody ResponseEntity<String> testResourceServer() {
         return new ResponseEntity<>("Success", HttpStatusCode.valueOf(200));
     }

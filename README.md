@@ -6,6 +6,7 @@
 * Use Outh2 server to generate token first in the steps mentioned below
 * Use the JWT token to extract the access token and pass it as a bearer token in the Authorization header to order service APIs
 * MySql needs to be also setup and running before started this microservice. 
+* @EnableMethod security needs to be provided in the configuration so that we can preauthorize with authorities. Default scope provide is openid and in 'hasAuthorities' must we prefixed with SCOPE_<value>
 ### Authorization code with PKCE
 
 GET: Generate the authorization code
